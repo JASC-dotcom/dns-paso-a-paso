@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# Provisión del servidor primario. Los bloques se fueron añadiendo paso a paso
-# (ver historial de Git). El bloque [6] (reinicio) va siempre al final.
+# Provisioning of the primary server. The blocks were added step by step.
+# (see Git history). Block (restart) always goes at the end.
 set -euo pipefail
 source /vagrant/config/common.sh
 LISTEN_IP="$PRIMARY_IP"
