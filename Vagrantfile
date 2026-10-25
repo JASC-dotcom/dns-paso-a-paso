@@ -1,7 +1,9 @@
 vars = File.readlines(File.join(__dir__, "config", "vars.env"))
            .map(&:strip).reject { |l| l.empty? || l.start_with?("#") }
            .map { |l| l.split("=", 2) }.to_h.transform_values { |v| v.delete('"') }
-PRIMARY_IP = "#{vars['NET']}.#{vars['PRIMARY_LAST']}"
+
+PRIMARY_IP   = "#{vars['NET']}.#{vars['PRIMARY_LAST']}"
+SECONDARY_IP = "#{vars['NET']}.#{vars['SECONDARY_LAST']}"
 
 Vagrant.configure("2") do |config|
   config.vm.box = "debian/bookworm64"
