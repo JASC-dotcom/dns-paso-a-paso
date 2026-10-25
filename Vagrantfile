@@ -5,7 +5,6 @@ vars = File.readlines(File.join(__dir__, "config", "vars.env"))
            .map { |l| l.split("=", 2) }.to_h.transform_values { |v| v.delete('"') }
 
 PRIMARY_IP   = "#{vars['NET']}.#{vars['PRIMARY_LAST']}"
-SECONDARY_IP = "#{vars['NET']}.#{vars['SECONDARY_LAST']}"
 
 Vagrant.configure("2") do |config|
   config.vm.box = "debian/bookworm64"
@@ -14,10 +13,5 @@ Vagrant.configure("2") do |config|
   config.vm.define "primario" do |p|
     p.vm.hostname = "debian"
     p.vm.network "private_network", ip: PRIMARY_IP
-  end
-
-    config.vm.define "secundario" do |s|
-    s.vm.hostname = "debian2"
-    s.vm.network "private_network", ip: SECONDARY_IP
   end
 end
