@@ -9,6 +9,7 @@ PRIMARY_IP   = "#{vars['NET']}.#{vars['PRIMARY_LAST']}"
 Vagrant.configure("2") do |config|
   config.vm.box = "debian/bookworm64"
   config.vm.synced_folder ".", "/vagrant"
+  p.vm.provision "shell", path: "config/provision-primary.sh"
 
   config.vm.define "primario" do |p|
     p.vm.hostname = "debian"
