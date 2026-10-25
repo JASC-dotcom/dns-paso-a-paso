@@ -13,4 +13,4 @@ Deploy everything: `vagrant up`
 
 ## Contents
 
-1. [Installing BIND on the servers](01-instalacion-servidores.md)
+1. [Installing BIND on the servers](01-servers-installation.md)
